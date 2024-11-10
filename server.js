@@ -284,7 +284,6 @@ const users = mongoose.model('User', userSchema);
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(/node_modules, express.static("node_modules"))
 app.use(express.static('public')); // Serve static files from 'public' directory
 
 // Generate Random String Function
