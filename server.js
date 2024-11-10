@@ -241,7 +241,6 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const sgMail = require('@sendgrid/mail');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 3000;
 
 function hashPassword(password) {
 const saltRounds = 10;
