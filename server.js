@@ -18,6 +18,9 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.redirect('/index.html');
 });
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 
 // Use the environment variable for MongoDB URI
