@@ -438,9 +438,3 @@ app.post('/reset-password', async (req, res) => {
   }
   });
   
-
-// Start the Server
-app.listen(PORT, () => {
-  const baseUrl = `http://localhost:${PORT}`; 
-  console.log(`Server is running on port ${PORT}: ${baseUrl}`); 
-});
