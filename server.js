@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(helmet());
 app.use(cors());
 app.get('/', (req, res) => {
-    res.send('Welcome to the server!');
+    window.location.href = 'index.html';
 });
 
 // Use the environment variable for MongoDB URI
