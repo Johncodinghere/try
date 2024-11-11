@@ -257,7 +257,7 @@ return bcrypt.hashSync(password, saltRounds);
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // MongoDB connection using the URI from .env
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
