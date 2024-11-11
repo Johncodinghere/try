@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Use the environment variable for MongoDB URI
-const mongoUri = process.env.MONGODB_URI; // Make sure MONGODB_URI is defined in .env
+const mongoUri = process.env.MONGO_URI; // Make sure MONGODB_URI is defined in .env
 
 if (!mongoUri) {
     console.error('MONGODB_URI is not defined. Check your .env file.');
@@ -257,7 +257,7 @@ return bcrypt.hashSync(password, saltRounds);
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // MongoDB connection using the URI from .env
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
