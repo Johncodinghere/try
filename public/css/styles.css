@@ -1,0 +1,97 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 200px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('https://images.unsplash.com/photo-1518770660439-4636190af475') no-repeat center center fixed;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #007BFF;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+#dataDisplay, #randomStringDisplay, #userRandomStringDisplay, #about{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #007BFF;
+}
+
+label, input {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 16px;
+    color:#007BFF;
+}
+
+input[type="number"] {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100px;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+#design {
+    padding: 10px;
+    background-color: #ccc;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+
+}
