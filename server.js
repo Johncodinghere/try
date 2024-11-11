@@ -10,11 +10,6 @@ const helmet = require('helmet');
 const validator = require('validator');
 const path = require('path');
 
-app.use(cors({
-    origin: 'https://web-sys.onrender.com', // Allow requests from your frontend's URL
-    methods: ['GET', 'POST'], // Allow specific HTTP methods
-    credentials: true // Allow cookies and session data
-}));
 
 
 const app = express();
@@ -22,7 +17,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+    origin: 'https://web-sys.onrender.com', // Allow requests from your frontend's URL
+    methods: ['GET', 'POST'], // Allow specific HTTP methods
+    credentials: true // Allow cookies and session data
+}));
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
