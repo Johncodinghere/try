@@ -8,6 +8,7 @@ const MongoStore = require('connect-mongo');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const validator = require('validator');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
