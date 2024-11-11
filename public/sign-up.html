@@ -87,8 +87,10 @@
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Create a password" required>
+            <span id="togglePassword" class="password-toggle-icon">👁</span>
             <label for="confirmPassword">Confirm Password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+            <span id="toggleConfirmPassword" class="password-toggle-icon">👁</span>
             <button type="submit">Sign Up</button>
             <div class="footer">
                 <p>Already have an account? <a href="login.html">Login here</a></p>
@@ -98,7 +100,7 @@
 </body>
 <script>
     // Toggle password visibility for the "Password" field
-    document.getElementById('password').addEventListener('click', function() {
+    document.getElementById('togglePassword').addEventListener('click', function() {
         const passwordInput = document.getElementById('password');
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
@@ -106,7 +108,7 @@
     });
 
     // Toggle password visibility for the "Confirm Password" field
-    document.getElementById('confirmPassword').addEventListener('click', function() {
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
         const confirmPasswordInput = document.getElementById('confirmPassword');
         const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         confirmPasswordInput.setAttribute('type', type);
