@@ -8,7 +8,6 @@ const MongoStore = require('connect-mongo');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const validator = require('validator');
-const path = require('path');
 
 const app = express();
 app.use(express.json());
@@ -16,9 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(helmet());
 app.use(cors());
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
 
 // Use the environment variable for MongoDB URI
 const mongoUri = process.env.MONGO_URI; // Make sure MONGODB_URI is defined in .env
@@ -443,6 +439,7 @@ app.post('/reset-password', async (req, res) => {
   }
   });
   
+
 // Start the Server
 app.listen(PORT, () => {
   const baseUrl = `http://localhost:${PORT}`; 
