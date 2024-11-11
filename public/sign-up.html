@@ -64,6 +64,18 @@
             background-color: #004d40;
         }
 
+        .password-toggle {
+            position: relative;
+        }
+
+         .password-toggle-icon {
+            position: absolute;
+            top: 50%;
+            right: 8px; /* Adjusted positioning */
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
         .footer {
             margin-top: 20px;
             text-align: center;
@@ -85,15 +97,16 @@
             <h3>Create an Account</h3>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
             <label for="password">Password:</label>
-            <div id="password">
-                <input type="password"  name="password" placeholder="Create a password" required>
+            <div class="password-toggle">
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
                 <span id="togglePassword" class="password-toggle-icon">👁</span>
             </div>
-            
+
             <label for="confirmPassword">Confirm Password:</label>
-            <div id="confirmPassword">
-                <input type="password"  name="confirmPassword" placeholder="Confirm your password" required>
+            <div class="password-toggle">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
                 <span id="toggleConfirmPassword" class="password-toggle-icon">👁</span>
             </div>
             
