@@ -98,7 +98,7 @@
 </body>
 <script>
     // Toggle password visibility for the "Password" field
-    document.getElementById('togglePassword').addEventListener('click', function() {
+    document.getElementById('password').addEventListener('click', function() {
         const passwordInput = document.getElementById('password');
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
@@ -106,7 +106,7 @@
     });
 
     // Toggle password visibility for the "Confirm Password" field
-    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+    document.getElementById('confirmPassword').addEventListener('click', function() {
         const confirmPasswordInput = document.getElementById('confirmPassword');
         const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         confirmPasswordInput.setAttribute('type', type);
