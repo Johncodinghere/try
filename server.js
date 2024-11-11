@@ -8,6 +8,7 @@ const MongoStore = require('connect-mongo');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const validator = require('validator');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
@@ -19,7 +20,7 @@ app.get('/', (req, res) => {
     res.redirect('/index.html');
 });
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname,'index.html'));
 });
 
 
