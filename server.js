@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Use the environment variable for MongoDB URI
-const mongoUri = process.env.MONGO_URI; // Make sure MONGODB_URI is defined in .env
+const mongoUri = process.env.MONGODB_URI; // Make sure MONGODB_URI is defined in .env
 
 if (!mongoUri) {
     console.error('MONGODB_URI is not defined. Check your .env file.');
