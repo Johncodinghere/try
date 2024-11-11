@@ -9,7 +9,6 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const validator = require('validator');
 const path = require('path');
-const apiUrl = 'https://web-sys.onrender.com/api'; // Use the full URL for API requests
 
 app.use(cors({
     origin: 'https://web-sys.onrender.com', // Allow requests from your frontend's URL
