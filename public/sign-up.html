@@ -97,6 +97,22 @@
     </div>
 </body>
 <script>
+    // Toggle password visibility for the "Password" field
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordInput = document.getElementById('password');
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁' : '🙈';
+    });
+
+    // Toggle password visibility for the "Confirm Password" field
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPasswordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁' : '🙈';
+    });
+    
     document.getElementById('signupForm').addEventListener('submit', function(event) {
         event.preventDefault();
         var email = document.getElementById('email').value.trim();
@@ -122,22 +138,6 @@
             console.error('Error:', error);
             alert('An error occurred. Please try again later.');
         });
-    });
-    
-    // Toggle password visibility for the "Password" field
-    document.getElementById('togglePassword').addEventListener('click', function() {
-        const passwordInput = document.getElementById('password');
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.textContent = type === 'password' ? '👁' : '🙈';
-    });
-
-    // Toggle password visibility for the "Confirm Password" field
-    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
-        const confirmPasswordInput = document.getElementById('confirmPassword');
-        const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        confirmPasswordInput.setAttribute('type', type);
-        this.textContent = type === 'password' ? '👁' : '🙈';
     });
 </script>
 </html>
