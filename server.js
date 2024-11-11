@@ -252,6 +252,7 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const sgMail = require('@sendgrid/mail');
 const mongoose = require('mongoose');
+const PORT = process.env.PORT || 10000;
 
 function hashPassword(password) {
 const saltRounds = 10;
@@ -448,3 +449,10 @@ app.post('/reset-password', async (req, res) => {
   res.status(500).json({ success: false, message: 'Error resetting password' });
   }
   });
+
+// Start the Server
+app.listen(PORT, () => {
+  const baseUrl = `http://localhost:${PORT}`; 
+  console.log(`Server is running on port ${PORT}: ${baseUrl}`); 
+});
+
