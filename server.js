@@ -401,55 +401,56 @@ app.post('/send-password-reset', async (req, res) => {
     }
   });
 
-  //reset password
+ // Reset password route
 app.post('/reset-password', async (req, res) => {
   const { resetKey, newPassword } = req.body;
-  try {
-  const user = await users.findOne({
-  resetKey: resetKey,
-  resetExpires: { $gt: new Date() }
-  });
 
-//   if (isValidResetCode(resetCode)) { // Replace with actual validation logic
-//     // Update the password for the user
-//     res.json({ success: true, message: "Password reset successful" });
-// } else {
-//     res.status(400).json({ success: false, message: "Invalid reset code" });
-// }
-
-
-  if (!user) {
-  res.status(400).json({ success: false, message: 'Invalid or expired resetkey.' });
-  
-  return;
+  // Validate the new password
+  if (!isValidPassword(newPassword)) {
+    return res.status(400).json({
+      success: false,
+      message: 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
+    });
   }
-  // Hash the new password
-  const hashedPassword = hashPassword(newPassword);
-  const updateResult = await users.updateOne(
-        { _id: user._id },
-        {
+
+  try {
+    const user = await users.findOne({
+      resetKey: resetKey,
+      resetExpires: { $gt: new Date() }
+    });
+
+    if (!user) {
+      return res.status(400).json({ success: false, message: 'Invalid or expired reset key.' });
+    }
+
+    // Hash the new password
+    const hashedPassword = hashPassword(newPassword);
+    const updateResult = await users.updateOne(
+      { _id: user._id },
+      {
         $set: {
           password: hashedPassword,
           resetKey: null,
           resetExpires: null
         }
-  }
-  );
-  if (updateResult.modifiedCount === 1) {
-    const email = user.emaildb;
+      }
+    );
 
-    await sendResetCodeEmail(email, resetKey);
+    if (updateResult.modifiedCount === 1) {
+      const email = user.emaildb;
 
-    res.json({ success: true, message: 'Your password has been successfully reset.' });
+      // Optional: send a confirmation email
+      await sendResetCodeEmail(email, resetKey);
+
+      res.json({ success: true, message: 'Your password has been successfully reset.' });
     } else {
       res.status(500).json({ success: false, message: 'Password reset failed.' });
     }
-    } catch (error) {
+  } catch (error) {
     console.error('Error resetting password:', error);
-  
-  res.status(500).json({ success: false, message: 'Error resetting password' });
+    res.status(500).json({ success: false, message: 'Error resetting password' });
   }
-  });
+});
 
 // Start the Server
 app.listen(PORT, () => {
