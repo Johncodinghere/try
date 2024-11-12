@@ -644,6 +644,11 @@ body {
             event.preventDefault();
             document.getElementById("form-message").style.display = "block";
         });
+
+         document.addEventListener('DOMContentLoaded', function () {
+            fetchUserDetails();
+        });
+        
         async function fetchUserDetails() {
     try {
         const response = await fetch('/user-details', { credentials: 'include' });
