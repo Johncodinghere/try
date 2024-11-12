@@ -6,10 +6,6 @@
     <title>One Direction Official Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Base Styles */
-       /* Global Body Style */
-/* Create a flowing black and white gradient effect */
-/* Body styles */
 body {
     display: flex;
     font-family: Arial, sans-serif;
@@ -33,9 +29,26 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .sidebar {
+        width: 250px;
+    }
 
+    .main-content {
+        margin-left: 250px;
+    }
+}
 
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
 
+    .main-content {
+        margin-left: 0;
+    }
+}
 
 /* Sidebar Styles */
 .sidebar {
@@ -374,30 +387,44 @@ body {
     margin-top: auto; /* Keep it at the bottom of the sidebar */
     text-align: center; /* Center the content */
     color: #fff; /* White text color */
-    font-size: 1px; /* Slightly bigger font for better readability */
-    padding: 15px 20px; /* Increase padding for a better feel */
-    border-radius: 8px; /* Slightly more rounded corners */
-    background: rgba(0, 0, 0, 0.5); /* Dark translucent background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to lift it */
-    transition: background 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+    font-size: 18px; /* Adjusted for better readability */
+    padding: 20px 30px; /* Increased padding for better spacing */
+    border-radius: 12px; /* More rounded corners for a soft look */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)); /* Gradient background for depth */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for lifting effect */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
 
+/* Hover Effect */
 .sidebar-welcome:hover {
-    background: rgba(0, 0, 0, 0.7); /* Darken background on hover */
+    background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
     transform: scale(1.05); /* Slightly enlarge the element on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Larger shadow on hover */
 }
 
+/* Welcome Text */
+.sidebar-welcome h2 {
+    font-size: 22px; /* Larger font size for the welcome message */
+    margin-bottom: 10px;
+    color: #f39c12; /* Accent color for the greeting */
+    font-weight: bold;
+}
+
+/* User Email Styling */
 .sidebar-welcome span {
     font-weight: bold; /* Make the email bold */
     color: #00bcd4; /* Use a vibrant color for the email text */
+    font-size: 18px;
+    text-transform: lowercase; /* Optional: Makes email look cleaner */
+    word-wrap: break-word; /* Ensure the email wraps properly */
 }
 
+/* Icon Styling */
 .sidebar-welcome i {
-    font-size: 1px; /* Add a little size to the icon */
+    font-size: 1.5em; /* Adjust icon size */
     color: #00bcd4; /* Match the color of the email */
-    margin-right: 8px; /* Add space between the icon and the text */
+    margin-right: 10px; /* Add space between the icon and the email text */
 }
-
 
 /* Form Input Fields */
 #contact-form input[type="text"],
