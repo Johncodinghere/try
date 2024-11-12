@@ -130,12 +130,13 @@ app.post('/login', loginLimiter, async (req, res) => {
             }
         }
 
-        // Successful login
+        // Successful login: reset invalid attempts and lockout fields
         await usersCollection.updateOne(
             { _id: user._id },
             { $set: { invalidLoginAttempts: 0, accountLockedUntil: null, lastLoginTime: new Date() } }
         );
 
+        // Set session data
         req.session.userId = user._id;
         req.session.email = user.emaildb;
         req.session.role = user.role;
@@ -153,6 +154,21 @@ app.post('/login', loginLimiter, async (req, res) => {
         console.error('Error during login:', error);
         res.status(500).json({ success: false, message: 'Error during login.' });
     }
+});
+
+// Middleware to reset invalid login attempts on page navigation
+app.use(async (req, res, next) => {
+    if (req.session.userId) {
+        try {
+            await usersCollection.updateOne(
+                { _id: req.session.userId },
+                { $set: { invalidLoginAttempts: 0, accountLockedUntil: null } }
+            );
+        } catch (error) {
+            console.error('Error resetting invalid login attempts:', error);
+        }
+    }
+    next();
 });
 
 // Sign Up Route
