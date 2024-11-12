@@ -371,14 +371,33 @@ body {
 }
 
 .sidebar-welcome {
-            margin-top: auto;
-            text-align: center;
-            color: #aaa;
-            font-size: 12px;
-            padding: 10px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
-        }
+    margin-top: auto; /* Keep it at the bottom of the sidebar */
+    text-align: center; /* Center the content */
+    color: #fff; /* White text color */
+    font-size: 14px; /* Slightly bigger font for better readability */
+    padding: 15px 20px; /* Increase padding for a better feel */
+    border-radius: 8px; /* Slightly more rounded corners */
+    background: rgba(0, 0, 0, 0.5); /* Dark translucent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to lift it */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+.sidebar-welcome:hover {
+    background: rgba(0, 0, 0, 0.7); /* Darken background on hover */
+    transform: scale(1.05); /* Slightly enlarge the element on hover */
+}
+
+.sidebar-welcome span {
+    font-weight: bold; /* Make the email bold */
+    color: #00bcd4; /* Use a vibrant color for the email text */
+}
+
+.sidebar-welcome i {
+    font-size: 20px; /* Add a little size to the icon */
+    color: #00bcd4; /* Match the color of the email */
+    margin-right: 8px; /* Add space between the icon and the text */
+}
+
 
 /* Form Input Fields */
 #contact-form input[type="text"],
@@ -464,7 +483,7 @@ body {
         <a href="#merch" class="nav-link" data-section="merch"><i class="fas fa-store"></i> Merch</a>
         <a href="#gallery" class="nav-link" data-section="gallery"><i class="fas fa-images"></i> Gallery</a>
         <a href="#" id="logoutLink" onclick="performLogout()" ><i class="fas fa-sign-out-alt" aria-hidden="true"></i>Logout</a>
-        <div class="nav-link" id="myDiv">
+        <div class="sidebar-welcome" id="myDiv">
             <h2>Hello, <span id="userEmail">[User's Email]</span>!</h2>
         </div>
     </div>
