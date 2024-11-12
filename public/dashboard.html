@@ -663,7 +663,7 @@ body {
 document.getElementById('logoutLink').addEventListener('click', function (event) {
     event.preventDefault();
     performLogout();
-});
+
 
 async function performLogout() {
     try {
@@ -682,6 +682,7 @@ async function performLogout() {
         console.error('Error during logout:', error);
     }
 }
+});
 
     </script>
 </body>
