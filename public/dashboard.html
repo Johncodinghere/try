@@ -401,10 +401,40 @@ body {
     transform: scale(1.05); /* Slightly enlarge the element on hover */
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Larger shadow on hover */
 }
+.sidebar-welcome {
+    margin-top: auto; /* Keep it at the bottom of the sidebar */
+    text-align: center; /* Center the content */
+    color: #fff; /* White text color */
+    font-size: 14px; /* Smaller font size */
+    padding: 15px 25px; /* Adjusted padding */
+    border-radius: 12px; /* Rounded corners */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)); /* Gradient background */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+}
+
+/* Hover Effect */
+.sidebar-welcome:hover {
+    background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+}
+
+/* Circle Container around the Message and Email */
+.sidebar-welcome .circle-content {
+    display: inline-block; /* Make it inline to allow text to center */
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background for the circle */
+    border-radius: 50%; /* Fully rounded to create the circle */
+    padding: 10px 20px; /* Circular padding to wrap the text */
+    text-align: center; /* Center the text inside the circle */
+    margin-top: 15px; /* Add some space between the circle and other elements */
+    max-width: 90%; /* Prevent the circle from being too wide */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow around the circle */
+}
 
 /* Welcome Text */
 .sidebar-welcome h2 {
-    font-size: 18px; /* Smaller font size for the welcome message */
+    font-size: 18px; /* Smaller font size for the heading */
     margin-bottom: 8px;
     color: #f39c12; /* Accent color for the greeting */
     font-weight: bold;
@@ -421,11 +451,10 @@ body {
 
 /* Icon Styling */
 .sidebar-welcome i {
-    font-size: 1.3em; /* Reduced icon size */
-    color: #00bcd4; /* Match the color of the email */
-    margin-right: 8px; /* Reduced space between the icon and the email text */
+    font-size: 1.3em; /* Icon size */
+    color: #00bcd4; /* Match icon color to the email */
+    margin-right: 8px; /* Space between the icon and the email */
 }
-
 
 /* Form Input Fields */
 #contact-form input[type="text"],
