@@ -324,15 +324,31 @@ body {
 
 /* About Section */
 .content-section#about {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(48, 48, 48, 0.9); /* Dark gray background with slight transparency */
+    color: #f2f2f2; /* Light gray text for better contrast */
     padding: 100px;
-    border-radius: 10px;
+    border-radius: 12px; /* Slightly increased radius for smoother corners */
     max-width: 600px;
     width: 90%;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
-    margin: 20px auto;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4); /* Darker shadow for depth on gray */
+    margin: 30px auto; /* Slightly larger margin for spacing */
     animation: fadeInSlide 0.8s ease-out;
+    font-family: 'Arial', sans-serif; /* Consistent font for readability */
+    line-height: 1.6; /* Improved readability */
 }
+
+/* Optional: Enhanced animation */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 
 
@@ -562,7 +578,7 @@ body {
     <h3>About One Direction</h3>
     <p>One Direction, often abbreviated as 1D, was a British-Irish boy band formed in London in 2010. The group consisted of Harry Styles, Niall Horan, Liam Payne, Louis Tomlinson, and Zayn Malik, who was later replaced by singer and songwriter Harry Styles in 2015.</p>
 
-    <p>One Direction quickly rose to fame after appearing on the British reality competition show *The X Factor*. Though they did not win, they became a global sensation, releasing five studio albums, including chart-topping hits like "What Makes You Beautiful," "Story of My Life," and "Drag Me Down."</p>
+    <p>One Direction quickly rose to fame after appearing on the British reality competition show The X Factor. Though they did not win, they became a global sensation, releasing five studio albums, including chart-topping hits like "What Makes You Beautiful," "Story of My Life," and "Drag Me Down."</p>
 
     <h4>Achievements</h4>
     <ul>
