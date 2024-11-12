@@ -1,3 +1,21 @@
+Conversation opened. 1 unread message.
+
+Skip to content
+Using Gmail with screen readers
+Enable desktop notifications for Gmail.
+   OK  No thanks
+6 of 1,399
+(no subject)
+Inbox
+
+CANOL, Ezell Mae T. <ezellcanol@gmail.com>
+Attachments
+Mon, Nov 11, 6:37 PM (16 hours ago)
+to me
+
+
+ One attachment
+  •  Scanned by Gmail
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,268 +25,440 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Base Styles */
-        body {
-            display: flex;
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            height: 100vh;
-            position: fixed;
-        }
-        .sidebar h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .sidebar a {
-            display: block;
-            color: #ddd;
-            padding: 10px 0;
-            text-decoration: none;
-        }
-        .sidebar a:hover, .sidebar a.active {
-            background-color: #555;
-            color: #fff;
-        }
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .navbar {
-            background-color: #222;
-            color: #fff;
-            padding: 15px;
-            font-size: 18px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .content-section {
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 8px;
-            display: none;
-        }
-        .content-section.active {
-            display: block;
-        }
-        .hero-section {
-            text-align: center;
-            padding: 50px;
-            background-image: url('pic/bakkk.jpg'); /* Replace with your correct image path */
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .hero-section h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-        .hero-section p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        .button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .section-item {
-            display: inline-block;
+       /* Global Body Style */
+/* Create a flowing black and white gradient effect */
+/* Body styles */
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #000000, #444444); /* Initial black to gray gradient */
+    animation: backgroundChange 10s ease-in-out infinite; /* Smooth transition */
+    height: 100vh; /* Ensure full height of the viewport */
+    background-attachment: fixed; /* Ensures background doesn't move when scrolling */
+}
+
+/* Keyframes for smoothly transitioning between black and gray */
+@keyframes backgroundChange {
+    0% {
+        background: linear-gradient(to right, #00000037, #444444); /* Black to Gray */
+    }
+    50% {
+        background: linear-gradient(to right, #444444, #00000037); /* Gray to Black */
+    }
+    100% {
+        background: linear-gradient(to right, #00000037, #444444); /* Back to Black to Gray */
+    }
+}
+
+
+
+
+
+/* Sidebar Styles */
+.sidebar {
+    width: 300px;  /* Increased width for better card layout */
+    background-color: #000000;  /* Dark blue-gray background */
+    color: #fff;
+    padding: 30px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: slideInLeft 1s ease-in-out; /* Sidebar slide-in */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);  /* Subtle shadow effect */
+    transition: width 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+/* Sidebar Header */
+.sidebar h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #cfdce47d;  /* Bright accent color for header */
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Sidebar Links (Styled as Cards) */
+.sidebar a {
+    display: block;
+    background-color: #2c3e50;  /* Card background color */
+    color: #ecf0f1;
+    padding: 15px 15px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 10px;  /* Rounded corners */
+    margin-bottom: 20px;  /* Spacing between cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle card shadow */
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Hover Effect on Cards */
+.sidebar a:hover, .sidebar a.active {
+    background-color: #3498db;  /* Bright blue on hover */
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  /* Slightly larger shadow on hover */
+    transform: translateY(-5px);  /* Lift card effect */
+}
+
+/* Sidebar Item with Icon */
+.sidebar a i {
+    margin-right: 15px;
+    font-size: 1.8em;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect on icon */
+.sidebar a:hover i {
+    transform: rotate(360deg);  /* Icon rotation on hover */
+}
+
+/* Collapsible Sidebar */
+.sidebar.collapsed {
+    width: 80px;  /* Smaller width when collapsed */
+    padding: 15px;
+}
+
+.sidebar.collapsed h2 {
+    font-size: 0;  /* Hides the title when collapsed */
+}
+
+.sidebar.collapsed a {
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Keyframe Animations */
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    animation: fadeInSlide 1s ease-out; /* Fade-in with slide */
+    display: inline-block; 
+}
+
+/* Navbar */
+.navbar {
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeInSlide 1s ease-out;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-image: url('C:/Users/ACER/Pictures/1d/bakkk.jpg'); /* Replace with correct image path */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: parallax 1s ease-in-out forwards;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: zoomIn 1s ease-out;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Button */
+.button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    transition: transform 0.3s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+/* Image Section */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;                    /* Allow items to wrap into rows */
+    gap: 2%;                            /* Adds spacing between items */
+    justify-content: flex-start;        /* Aligns items to the left */
+    padding-left: 0%;                   /* Ensures no content is cut off on the left */
+    box-sizing: border-box;
+}
+
+/* Section Items and Merch Items */
+.section-item, .merch-item {
+    width: 48%;                         /* Ensure each item takes up 48% of the container */
+    margin-bottom: 20px;                /* Adds space between rows */
+    text-align: center;                 /* Centers image within its container */
+    box-sizing: border-box; 
+    display: inline-block;
             width: 48%;
             vertical-align: top;
             box-sizing: border-box;
             margin-right: 1%;
-            text-align: center;
-        }
-        .section-item img {
-            width: 100%;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .merch-item {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .merch-item img {
-            width: 200px;
+            text-align: center;            /* Ensure padding and borders do not affect width */
+}
+.section-item1 {
+    width: 48%;                         /* Ensure each item takes up 48% of the container */
+    margin-bottom: 20px;                /* Adds space between rows */
+    text-align: center;                 /* Centers image within its container */
+    box-sizing: border-box; 
+    display: inline-block;
+            width: 48%;
+            vertical-align: top;
+            box-sizing: border-box;
+            margin-right: 1%;
+            text-align: center; 
+}
+/* Image Section */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;                    /* Allow items to wrap into rows */
+    gap: 2%;                            /* Adds spacing between items */
+    justify-content: space-between;     /* Spread items to left and right */
+    padding-left: 0%;                   /* Ensures no content is cut off on the left */
+    box-sizing: border-box;
+}
+
+/* Section Items and Merch Items */
+.section-item, .merch-item {
+    width: 48%;                         /* Ensure each item takes up 48% of the container */
+    margin-bottom: 20px;                /* Adds space between rows */
+    text-align: center;                 /* Centers image within its container */
+    box-sizing: border-box;             /* Ensure padding and borders do not affect width */
+}
+
+/* Image Style */
+.section-item img {
+    width: 500px;
+    height: auto;
+    margin-bottom: 5px;
+    margin-left: 100px; /* Adds space to the left, moving the image to the right */
+    cursor: pointer;
+    transition: transform 0.5s, filter 0.5s;
+    animation: zoomIn 0.7s ease-out;
+}
+.section-item1 img {
+    width: 600px;
+    height: auto;
+    margin-bottom: 5px;
+    margin-left: 150px; /* Adds space to the left, moving the image to the right */
+    cursor: pointer;
+    transition: transform 0.5s, filter 0.5s;
+    animation: zoomIn 0.7s ease-out;
+}
+.merch-item img {
+    width: 350px;
             height: auto;
             margin-bottom: 10px;
-        }
-        .merch-item h4 {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-        }
-        .close-modal {
-            background-color: red;
-            color: #fff;
-            padding: 5px 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-    
-        /* About Section Styles */
-        .content-section#about {
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black box */
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 600px;
-            width: 90%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            margin: 20px auto; /* Center alignment */
-            text-align: left;
-            color: #ffffff;
-        }
-        .content-section#about h3 {
-            font-size: 28px;
-            color: #ff6347; /* Light orange for a pop of color */
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        .content-section#about h4 {
-            font-size: 22px;
-            color: #ff6347;
-            margin-top: 20px;
-            text-align: left;
-        }
-        .content-section#about p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #ddd;
-        }
-        .content-section#about ul {
-            padding-left: 20px;
-            margin-top: 10px;
-            color: #ddd;
-        }
-        .content-section#about li {
-            margin-bottom: 10px;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .button.open-modal {
-            padding: 12px 20px;
-            font-size: 16px;
-            color: #ffffff;
-            background-color: #ff6347; /* Accent color */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button.open-modal:hover {
-            background-color: #e55337; /* Slightly darker on hover */
-        }
-    
-        /* Contact Section Styles */
-        .content-section#contact {
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 600px;
-            width: 90%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            margin: 20px auto;
-            text-align: center;
-            color: #ffffff;
-        }
-        .content-section#contact h3 {
-            font-size: 28px;
-            color: #000000; /* Accent color */
-            margin-bottom: 20px;
-        }
-        #contact-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        #contact-form input[type="text"],
-        #contact-form input[type="email"] {
-            width: 90%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            background-color: #333;
-            color: #fff;
-            font-size: 16px;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        #contact-form input[type="text"]:focus,
-        #contact-form input[type="email"]:focus {
-            border-color: #010201;
-        }
-        .button {
-            background-color: #0e240f; /* Submit button color */
-            color: #fff;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-        .button:hover {
-            background-color: #45a049; /* Darker green on hover */
-        }
-        #form-message {
-            display: none;
-            color: #4CAF50;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        /* Icon Styles */
-        .icon {
-            margin-right: 10px;
-            color: #4CAF50;
-            font-size: 1.2em;
-            vertical-align: middle;
-        }
+    cursor: pointer;
+    transition: transform 0.5s, filter 0.5s;
+    animation: zoomIn 0.7s ease-out;
+    margin-left: 100px;
+}
+
+/* Hover Effect */
+.section-item img:hover,
+.merch-item img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Optional: Adjust the main content padding to avoid cutting off */
+.main-content {
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+
+/* About Section */
+.content-section#about {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 100px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    margin: 20px auto;
+    animation: fadeInSlide 0.8s ease-out;
+}
+
+
+
+
+/* Header Styles */
+.content-section#contact h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3e50; /* Dark color for header */
+    font-weight: bold;
+}
+
+/* Icon Styles */
+#contact-form .icon {
+    font-size: 3em;
+    color: #2c3e50; /* Dark color for icon */
+    margin-bottom: 20px;
+    animation: bounce 1s infinite; /* Bounce animation for the icon */
+}
+
+/* Adding Space Between Icons */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Fade-in Animation for the whole section */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Bounce Animation for the Icon */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Form Input Fields */
+#contact-form input[type="text"],
+#contact-form input[type="email"] {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8); /* Light transparent background for inputs */
+    color: #333;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Focus Effect */
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus {
+    border-color: #f39c12; /* Golden border on focus */
+}
+
+/* Submit Button */
+#contact-form button {
+    background-color: #f39c12; /* Golden button */
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+#contact-form button:hover {
+    background-color: #e67e22; /* Slightly darker shade on hover */
+}
+
+
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInSlide {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes parallax {
+    from { background-position: center 0; }
+    to { background-position: center -100px; }
+}
+
     </style>
     
     
@@ -279,11 +469,13 @@
         <a href="#home" class="nav-link" data-section="home"><i class="fas fa-home"></i> Home</a>
         <a href="#about" class="nav-link" data-section="about"><i class="fas fa-info-circle"></i> About</a>
         <a href="#music" class="nav-link" data-section="music"><i class="fas fa-music"></i> Music</a>
-        <a href="#tour" class="nav-link" data-section="tour"><i class="fas fa-calendar-alt"></i> Tour</a>
         <a href="#merch" class="nav-link" data-section="merch"><i class="fas fa-store"></i> Merch</a>
         <a href="#gallery" class="nav-link" data-section="gallery"><i class="fas fa-images"></i> Gallery</a>
-        <a href="#contact" class="nav-link" data-section="contact"><i class="fas fa-envelope"></i> Contact</a>
+       
+        <a href="#" id="logoutLink"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>Logout</a>
+
     </div>
+    
 
     <div class="main-content">
         <div class="navbar">Welcome to One Direction Official Website</div>
@@ -322,18 +514,38 @@
 
         <!-- Music Section -->
         <div id="music" class="content-section">
-            <h3>Music</h3>
+            <!--<h3>Music</h3>-->
             <div class="section-content">
                 <div class="section-item">
                     <img src="C:\Users\ACER\Pictures\1d\am.jpg" alt="Made in the A.M. Album Cover">
                     <h4>Made in the A.M.</h4>
-                    <p>Release Date: 2015</p>
+                  
                     <button class="button open-modal" data-modal-text="Stream it on Spotify!">Listen Now</button>
                 </div>
                 <div class="section-item">
                     <img src="C:\Users\ACER\Pictures\1d\four.jpg" alt="Four Album Cover">
                     <h4>Four</h4>
-                    <p>Release Date: 2014</p>
+                  
+                    <button class="button open-modal" data-modal-text="Stream it on Spotify!">Listen Now</button>
+                </div>
+                <div class="section-item">
+                    <img src="C:\Users\ACER\Pictures\ad\tele.PNG" alt="Four Album Cover">
+                    <h4>Take Me Home</h4>
+                    <button class="button open-modal" data-modal-text="Stream it on Spotify!">Listen Now</button>
+                </div>
+                <div class="section-item">
+                    <img src="C:\Users\ACER\Pictures\ad\up.JPG" alt="Four Album Cover">
+                    <h4>Up All Night</h4>
+                    <button class="button open-modal" data-modal-text="Stream it on Spotify!">Listen Now</button>
+                </div>
+                <div class="section-item">
+                    <img src="C:\Users\ACER\Pictures\ad\makes.JPG" alt="Four Album Cover">
+                    <h4>What Makes You Beautiful</h4>
+                    <button class="button open-modal" data-modal-text="Stream it on Spotify!">Listen Now</button>
+                </div>
+                <div class="section-item">
+                    <img src="C:\Users\ACER\Pictures\ad\mid.JPG" alt="Four Album Cover">
+                    <h4>Midnight Memories</h4>
                     <button class="button open-modal" data-modal-text="Stream it on Spotify!">Listen Now</button>
                 </div>
             </div>
@@ -341,10 +553,16 @@
 
         <!-- Merch Section -->
         <div id="merch" class="content-section">
-            <h3>Merchandise</h3>
+            <!--<h3>Merchandise</h3>-->
             <div class="merch-item">
                 <img src="C:\Users\ACER\Pictures\1d\tsort.jpg" alt="One Direction T-Shirt">
                 <h4>One Direction T-Shirt</h4>
+                <p>$20.00</p>
+                <button class="button open-modal" data-modal-text="Buy this item now!">Buy Now</button>
+            </div>
+            <div class="merch-item">
+                <img src="C:\Users\ACER\Pictures\ad\cap.jpg" alt="One Direction T-Shirt">
+                <h4>One Direction Cap</h4>
                 <p>$20.00</p>
                 <button class="button open-modal" data-modal-text="Buy this item now!">Buy Now</button>
             </div>
@@ -354,32 +572,46 @@
                 <p>$30.00</p>
                 <button class="button open-modal" data-modal-text="Buy this item now!">Buy Now</button>
             </div>
+            <div class="merch-item">
+                <img src="C:\Users\ACER\Pictures\ad\sho.jpg" alt="One Direction Hoodie">
+                <h4>One Direction Shoes</h4>
+                <p>$30.00</p>
+                <button class="button open-modal" data-modal-text="Buy this item now!">Buy Now</button>
+            </div>
+            <div class="merch-item">
+                <img src="C:\Users\ACER\Pictures\ad\bag.jpg" alt="One Direction Hoodie">
+                <h4>One Direction Bag</h4>
+                <p>$30.00</p>
+                <button class="button open-modal" data-modal-text="Buy this item now!">Buy Now</button>
+            </div>
+            <div class="merch-item">
+                <img src="C:\Users\ACER\Pictures\ad\ki.jpg" alt="One Direction Hoodie">
+                <h4>One Direction KeyChain</h4>
+                <p>$30.00</p>
+                <button class="button open-modal" data-modal-text="Buy this item now!">Buy Now</button>
+            </div>
         </div>
 
         <!-- Gallery Section -->
         <div id="gallery" class="content-section">
-            <h3>Gallery</h3>
+            <!--<h3>Gallery</h3>-->
             <div class="section-content">
-                <div class="section-item">
+                <div class="section-item1">
                     <img src="C:\Users\ACER\Pictures\1d\concert1.jpg" alt="One Direction Concert Photo 1">
                 </div>
-                <div class="section-item">
+                <div class="section-item1">
                     <img src="C:\Users\ACER\Pictures\1d\concert2.png" alt="One Direction Concert Photo 2">
+                </div>
+                <div class="section-item1">
+                    <img src="C:\Users\ACER\Pictures\ad\poto.JPG" alt="One Direction Concert Photo 2">
+                </div>
+                <div class="section-item1">
+                    <img src="C:\Users\ACER\Pictures\ad\poto1.JPG" alt="One Direction Concert Photo 2">
                 </div>
             </div>
         </div>
 
-        <!-- Contact Section -->
-        <div id="contact" class="content-section">
-            <h3>Contact</h3>
-            <form id="contact-form">
-                <input type="text" placeholder="Name" required><br><br>
-                <input type="email" placeholder="Email" required><br><br>
-                <button type="submit" class="button">Submit</button>
-            </form>
-            <p id="form-message" style="display:none; color: green;">Thank you for reaching out!</p>
-        </div>
-    </div>
+    
 
     <!-- Modal -->
     <div id="modal" class="modal">
@@ -430,6 +662,45 @@
             event.preventDefault();
             document.getElementById("form-message").style.display = "block";
         });
+        async function fetchUserDetails() {
+    try {
+        const response = await fetch('/user-details', { credentials: 'include' });
+        if (!response.ok) {
+            throw new Error('Failed to fetch user details.');
+        }
+        const data = await response.json();
+        if (data.success) {
+            document.getElementById('userEmail').textContent = data.user.email;
+        } else {
+            console.error('Failed to fetch user details:', data.message);
+        }
+    } catch (error) {
+        console.error('Error fetching user details:', error);
+    }
+}
+document.getElementById('logoutLink').addEventListener('click', function (event) {
+    event.preventDefault();
+    performLogout();
+});
+
+async function performLogout() {
+    try {
+        const response = await fetch('/logout', {
+            method: 'POST',
+            credentials: 'include'
+        });
+        
+        if (response.ok) {
+            console.log('Logout successful. Redirecting to login page...');
+            window.location.href = 'login.html';
+        } else {
+            console.error('Logout failed');
+        }
+    } catch (error) {
+        console.error('Error during logout:', error);
+    }
+}
+
     </script>
 </body>
 </html>
