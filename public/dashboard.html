@@ -370,6 +370,16 @@ body {
     }
 }
 
+.sidebar-welcome {
+            margin-top: auto;
+            text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            padding: 10px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
 /* Form Input Fields */
 #contact-form input[type="text"],
 #contact-form input[type="email"] {
@@ -454,7 +464,9 @@ body {
         <a href="#merch" class="nav-link" data-section="merch"><i class="fas fa-store"></i> Merch</a>
         <a href="#gallery" class="nav-link" data-section="gallery"><i class="fas fa-images"></i> Gallery</a>
         <a href="#" id="logoutLink" onclick="performLogout()" ><i class="fas fa-sign-out-alt" aria-hidden="true"></i>Logout</a>
-        <h2>Hello, <span id="userEmail">[User's Email]</span>!</h2>
+        <div class="sidebar-welcome">
+            <h2>Hello, <span id="userEmail">[User's Email]</span>!</h2>
+        </div>
     </div>
     
 
@@ -644,7 +656,7 @@ body {
             document.getElementById("form-message").style.display = "block";
         });
 
-         document.addEventListener('DOMContentLoaded', function () {
+          document.addEventListener('DOMContentLoaded', function () {
             fetchUserDetails();
         });
         
