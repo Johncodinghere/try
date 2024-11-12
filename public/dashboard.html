@@ -661,30 +661,28 @@ body {
     }
 }
         
-document.getElementById('logoutLink').addEventListener('click', function (event) {
-    event.preventDefault();
-    performLogout();
-});
-
-async function performLogout() {
-    try {
-        const response = await fetch('/logout', {
-            method: 'POST',
-            credentials: 'include'
+ document.getElementById('logoutLink').addEventListener('click', function (event) {
+            event.preventDefault();
+            performLogout();
         });
-        
-        if (response.ok) {
-            console.log('Logout successful. Redirecting to login page...');
-            window.location.href = 'login.html';
-        } else {
-            console.error('Logout failed');
+    
+        async function performLogout() {
+            try {
+                const response = await fetch('/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                
+                if (response.ok) {
+                    console.log('Logout successful. Redirecting to login page...');
+                    window.location.href = 'login.html';
+                } else {
+                    console.error('Logout failed');
+                }
+            } catch (error) {
+                console.error('Error during logout:', error);
+            }
         }
-    } catch (error) {
-        console.error('Error during logout:', error);
-    }
-}
-
-
     </script>
 </body>
 </html>
