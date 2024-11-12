@@ -72,9 +72,10 @@ function hashPassword(password) {
 }
 
 function isValidPassword(password) {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{};:'",.<>?\\|`~])[A-Za-z\d!@#$%^&*()_\-+=\[\]{};:'",.<>?\\|`~]{8,}$/;
     return passwordRegex.test(password);
 }
+
 
 // Rate Limiting for Login Route
 const loginLimiter = rateLimit({
@@ -162,7 +163,7 @@ app.post('/signup', async (req, res) => {
             return res.status(400).json({ success: false, message: 'Email and password are required.' });
         }
         if (!isValidPassword(password)) {
-            return res.status(400).json({ success: false, message: 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.' });
+            return res.status(400).json({ success: false, message: 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one special character, and one number.' });
         }
 
         const existingUser = await usersCollection.findOne({ emaildb: email });
