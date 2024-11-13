@@ -79,9 +79,9 @@ function isValidPassword(password) {
 
 // Rate Limiting for Login Route
 const loginLimiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 30 minutes
+    windowMs: 30 * 60 * 1000, // 30 minutes
     max: 5, // Limit each IP to 5 requests per window
-    message: 'Too many login attempts, please try again after 10 minutes.',
+    message: 'Too many login attempts, please try again after 30 minutes.',
     handler: (req, res, next, options) => {
         res.status(options.statusCode).json({ success: false, message: options.message });
     }
@@ -120,10 +120,10 @@ app.post('/login', loginLimiter, async (req, res) => {
 
             if (invalidAttempts >= 3) {
                 // Lock account
-                updateFields.accountLockedUntil = new Date(Date.now() + 10 * 60 * 1000); // 30 minutes
+                updateFields.accountLockedUntil = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
                 updateFields.invalidLoginAttempts = 0;
                 await usersCollection.updateOne({ _id: user._id }, { $set: updateFields });
-                return res.status(403).json({ success: false, message: 'Account is locked due to multiple failed login attempts. Please try again after 10 minutes.' });
+                return res.status(403).json({ success: false, message: 'Account is locked due to multiple failed login attempts. Please try again after 30 minutes.' });
             } else {
                 await usersCollection.updateOne({ _id: user._id }, { $set: updateFields });
                 return res.status(400).json({ success: false, message: 'Invalid email or password.' });
