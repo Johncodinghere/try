@@ -79,9 +79,9 @@ function isValidPassword(password) {
 
 // Rate Limiting for Login Route
 const loginLimiter = rateLimit({
-    windowMs: 30 * 60 * 1000, // 30 minutes
+    windowMs: 10 * 60 * 1000, // 30 minutes
     max: 5, // Limit each IP to 5 requests per window
-    message: 'Too many login attempts, please try again after 30 minutes.',
+    message: 'Too many login attempts, please try again after 10 minutes.',
     handler: (req, res, next, options) => {
         res.status(options.statusCode).json({ success: false, message: options.message });
     }
