@@ -123,7 +123,7 @@ app.post('/login', loginLimiter, async (req, res) => {
                 updateFields.accountLockedUntil = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
                 updateFields.invalidLoginAttempts = 0;
                 await usersCollection.updateOne({ _id: user._id }, { $set: updateFields });
-                return res.status(403).json({ success: false, message: 'Account is locked due to multiple failed login attempts. Please try again after 30 minutes.' });
+                return res.status(403).json({ success: false, message: 'Account is locked due to multiple failed login attempts. Please try again after 10 minutes.' });
             } else {
                 await usersCollection.updateOne({ _id: user._id }, { $set: updateFields });
                 return res.status(400).json({ success: false, message: 'Invalid email or password.' });
